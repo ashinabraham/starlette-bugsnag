@@ -17,6 +17,7 @@ def get_version(package):
 setup(
     name="starlette_bugsnag",
     python_requires=">=3.6",
+    version=get_version("starlette_bugsnag"),
     url="https://github.com/ashinabraham/starlette-bugsnag",
     author="Ashin E Abraham",
     license='MIT',
@@ -25,6 +26,7 @@ setup(
     packages=find_packages(),
     install_requires=['bugsnag'],
     classifiers=[
+        "Development Status :: 1 - Alpha"
         "Environment :: Web Environment",
         "Operating System :: OS Independent",
         "Topic :: Internet :: WWW/HTTP",
