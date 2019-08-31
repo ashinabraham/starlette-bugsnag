@@ -4,7 +4,6 @@ from .types import Scope, Receive, Send, ASGIApp
 
 
 class BugsnagMiddleware:
-
     def __init__(self, app: ASGIApp, debug: bool = True) -> None:
         self.app = app
         self._debug = debug

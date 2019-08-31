@@ -20,13 +20,13 @@ setup(
     version=get_version("starlette_bugsnag"),
     url="https://github.com/ashinabraham/starlette-bugsnag",
     author="Ashin E Abraham",
-    license='MIT',
+    license="MIT",
     author_email="ashineabraham@gmail.com",
     data_files=[("", ["LICENSE"])],
     packages=find_packages(),
-    install_requires=['bugsnag'],
+    install_requires=["bugsnag"],
     classifiers=[
-        "Development Status :: 1 - Alpha"
+        "Development Status :: 1 - Alpha",
         "Environment :: Web Environment",
         "Operating System :: OS Independent",
         "Topic :: Internet :: WWW/HTTP",
@@ -34,5 +34,5 @@ setup(
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
     ],
-    zip_safe=False
+    zip_safe=False,
 )
