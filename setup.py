@@ -15,7 +15,7 @@ def get_version(package):
 
 
 setup(
-    name="starlette_bugsnag",
+    name="starlette-bugsnag",
     python_requires=">=3.6",
     version=get_version("starlette_bugsnag"),
     url="https://github.com/ashinabraham/starlette-bugsnag",

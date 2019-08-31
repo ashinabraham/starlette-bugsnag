@@ -23,7 +23,7 @@ def index(request):
     return PlainTextResponse("Hello World")
 
 
-@app.route("/raise")
+@app.route("/error")
 def raiser(request):
     raise ValueError("This Is an Error")
 
