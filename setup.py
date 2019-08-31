@@ -36,10 +36,12 @@ setup(
     packages=find_packages(),
     install_requires=["bugsnag"],
     classifiers=[
-        "Development Status :: 1 - Alpha",
+        "Natural Language :: English",
+        "Development Status :: 4 - Beta",
         "Environment :: Web Environment",
         "Operating System :: OS Independent",
         "Topic :: Internet :: WWW/HTTP",
+        "License :: OSI Approved :: MIT License",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
