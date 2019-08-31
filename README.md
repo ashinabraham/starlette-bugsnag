@@ -49,4 +49,4 @@ if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
 ```
 
-See [examples](examples) for more.
+See [examples](https://github.com/ashinabraham/starlette-bugsnag/tree/master/examples) for more.
