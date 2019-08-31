@@ -11,7 +11,7 @@ class BugsnagMiddleware:
 
     async def __call__(self, scope: Scope, receive: Receive, send: Send) -> None:
         if not self._debug:
-            await self.bugsnag_app(scope, send, receive)
+            await self.bugsnag_app(scope, receive, send)
             return
         await self.app(scope, receive, send)
 
