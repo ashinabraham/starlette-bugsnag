@@ -1,4 +1,5 @@
 import typing
+from urllib import parse as urlparse
 
 import bugsnag
 
@@ -41,5 +42,40 @@ class BugsnagMiddleware:
         except Exception as e:
             return {'error': 'Could not collect locals ({})'.format(e)}
 
+    def get_url_info(self, scope: Scope) -> typing.Dict:
+        scheme = scope.get("scheme", "http")
+        path = scope.get("root_path", "") + scope["path"]
+        query_string = scope["query_string"]
+        server = scope.get("server", None)
+
+        host_header = None
+        headers = {}
+        for key, value in scope["headers"]:
+            if key == b"host":
+                host_header = value.decode("latin-1")
+            if key in headers:
+                headers[key] = headers[key] + ", " + value
+            else:
+                headers[key] = value
+
+        if host_header is not None:
+            url = f"{scheme}://{host_header}{path}"
+        elif server is None:
+            url = path
+        else:
+            host, port = server
+            default_port = {"http": 80, "https": 443, "ws": 80, "wss": 443}[scheme]
+            if port == default_port:
+                url = f"{scheme}://{host}{path}"
+            else:
+                url = f"{scheme}://{host}:{port}{path}"
+        return {
+            "url": url,
+            "query": urlparse.unquote(query_string.decode("latin-1")),
+            "headers": headers
+        }
+
     def additional_info(self, notification) -> None:
+        url_info = self.get_url_info(notification.request_config.scope)
+        notification.add_tab("request", url_info)
         notification.add_tab("locals", notification.request_config.frame_locals)
