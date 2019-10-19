@@ -34,7 +34,7 @@ setup(
     long_description=get_long_description(),
     long_description_content_type="text/markdown",
     packages=find_packages(),
-    install_requires=["bugsnag"],
+    install_requires=["bugsnag", 'starlette'],
     classifiers=[
         "Natural Language :: English",
         "Development Status :: 4 - Beta",
